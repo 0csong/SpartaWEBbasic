@@ -15,15 +15,15 @@ def home():
 
 @app.route('/memo', methods=['GET'])
 def listing():
-    sample_receive = request.args.get('sample_give')
-    print(sample_receive)
-    return jsonify({'msg':'GET 연결되었습니다!'})
+    articles = list(db.articles.find({}, {'_id': False}))
+    return jsonify({'all_articles':articles})
 
 ## API 역할을 하는 부분
 @app.route('/memo', methods=['POST'])
 def saving():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
+
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
