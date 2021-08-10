@@ -1,4 +1,5 @@
 #데이터 크롤링 코드
+#mongoDB키고 Robo3T로 
 import requests
 from bs4 import BeautifulSoup
 
