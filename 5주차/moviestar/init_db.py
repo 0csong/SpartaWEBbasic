@@ -37,7 +37,7 @@ def insert_star(url):
     data = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
-
+    #원하는 부분에 검사>copy>copy selector
     name = soup.select_one('#content > div.article > div.mv_info_area > div.mv_info.character > h3 > a').text
     img_url = soup.select_one('#content > div.article > div.mv_info_area > div.poster > img')['src']
     recent_work = soup.select_one(
